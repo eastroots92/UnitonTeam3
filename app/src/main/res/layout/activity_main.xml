@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout 
-  xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
@@ -96,43 +95,70 @@
             android:layout_height="wrap_content"
             android:background="@drawable/layout_main"
             android:gravity="center_horizontal"
-            android:padding="12dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="12dp">
+
             <LinearLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:gravity="end"
               android:orientation="horizontal">
+
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black0"
-                android:text="@string/main_resign_preposition"/>
+                android:text="@string/main_resign_preposition"
+                android:textColor="@color/black0" />
+
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black0"
-                android:text="@string/main_resign"/>
+                android:text="@string/main_resign"
+                android:textColor="@color/black0" />
+
               <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black0"
-                android:text="@string/main_resign_postposition"/>
+                android:text="@string/main_resign_postposition"
+                android:textColor="@color/black0" />
             </LinearLayout>
-            
+
             <ImageView
               android:layout_width="80dp"
               android:layout_height="80dp"
-              android:src="@mipmap/ic_launcher"/>
-            
+              android:src="@mipmap/ic_launcher" />
+
             <Button
               android:layout_width="match_parent"
               android:layout_height="60dp"
-              android:text="@string/main_resign_write"
-              />
+              android:text="@string/main_resign_write" />
 
           </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_myresign_preposition"
+            android:textColor="@color/black0" />
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_myresign"
+            android:textColor="@color/black0" />
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_myresign_postposition"
+            android:textColor="@color/black0" />
         </LinearLayout>
 
       </LinearLayout>
@@ -147,14 +173,67 @@
     android:background="@color/white0"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <android.support.v7.widget.RecyclerView
+    <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:background="@color/white0">
+      android:orientation="vertical">
 
-    </android.support.v7.widget.RecyclerView>
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/black0"
+        android:padding="40dp"
+        android:text="2222"
+        android:textColor="@color/white0" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/black0"
+        android:padding="40dp"
+        android:text="2222"
+        android:textColor="@color/white0" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/black0"
+        android:padding="40dp"
+        android:text="2222"
+        android:textColor="@color/white0" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/black0"
+        android:padding="40dp"
+        android:text="2222"
+        android:textColor="@color/white0" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/black0"
+        android:padding="40dp"
+        android:text="2222"
+        android:textColor="@color/white0" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/black0"
+        android:padding="40dp"
+        android:text="2222"
+        android:textColor="@color/white0" />
+
+    </LinearLayout>
 
   </android.support.v4.widget.NestedScrollView>
-
 
 </android.support.design.widget.CoordinatorLayout>

@@ -10,4 +10,7 @@
     <string name="main_resign">1</string>
     <string name="main_resign_postposition">/5</string>
     <string name="main_resign_write">사직서 쓰기</string>
+    <string name="main_myresign_preposition">내가 품은 사직서 : </string>
+    <string name="main_myresign">8</string>
+    <string name="main_myresign_postposition">개</string>
 </resources>
