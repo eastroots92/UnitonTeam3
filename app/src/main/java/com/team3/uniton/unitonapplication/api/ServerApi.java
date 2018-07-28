@@ -1,6 +1,7 @@
 package com.team3.uniton.unitonapplication.api;
 
 import com.team3.uniton.unitonapplication.model.Info;
+import com.team3.uniton.unitonapplication.model.MainModel;
 import com.team3.uniton.unitonapplication.model.Status;
 import com.team3.uniton.unitonapplication.model.Token;
 
@@ -29,4 +30,12 @@ public interface ServerApi {
     @Body
       Info info
   );
+
+
+  @GET("/user/{id}/main")
+  Call<MainModel> getMain(
+          @Path("id")
+          String userId
+  );
+
 }
