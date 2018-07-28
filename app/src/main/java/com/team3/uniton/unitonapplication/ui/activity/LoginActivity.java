@@ -176,6 +176,10 @@ public class LoginActivity extends AppCompatActivity {
       .enqueue(new Callback<Status>() {
         @Override
         public void onResponse(Call<Status> call, Response<Status> response) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
           String result = response.body().status;
           Log.e("LOGIN_RESPONSE", result);
           if ("200 : OK".equals(result)) {

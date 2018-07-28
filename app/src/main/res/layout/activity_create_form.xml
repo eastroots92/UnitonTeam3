@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="#026eff">
+=======
+    android:background="#026eff"
+    tools:context=".ui.activity.CreateFormActivity">
+>>>>>>> dev
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -86,6 +91,7 @@
             app:layout_constraintVertical_bias="0.319">
 
 
+<<<<<<< HEAD
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -156,6 +162,78 @@
 
 
             <LinearLayout
+=======
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:textColor="#909090"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="회사명" />
+
+            <EditText
+                android:id="@+id/et_company"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:layout_marginStart="15dp"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:textColor="#909090"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="소속" />
+
+            <EditText
+                android:id="@+id/et_department"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:textColor="#909090"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="직위" />
+
+            <EditText
+                android:id="@+id/et_position"
+>>>>>>> dev
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:orientation="horizontal">
@@ -202,6 +280,7 @@
             </LinearLayout>
         </LinearLayout>
 
+<<<<<<< HEAD
 
         <Button
             android:id="@+id/applyBtn"
@@ -217,6 +296,25 @@
             app:layout_constraintStart_toStartOf="parent"
             android:background="@drawable/background_blue"
             tools:ignore="MissingConstraints" />
+=======
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_apply"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="35dp"
+        android:textColor="#ffffff"
+        android:elevation="15dp"
+        android:textStyle="bold"
+        android:text="등록하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/background_blue"
+        tools:ignore="MissingConstraints" />
+>>>>>>> dev
 
     </android.support.constraint.ConstraintLayout>
 

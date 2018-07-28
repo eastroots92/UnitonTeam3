@@ -8,7 +8,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+<<<<<<< HEAD:app/src/main/java/com/team3/uniton/unitonapplication/ui/activity/TutorialActivity.java
 import com.rd.PageIndicatorView;
+=======
+>>>>>>> dev:app/src/main/java/com/team3/uniton/unitonapplication/ui/activity/TutorialActivity.java
 import com.team3.uniton.unitonapplication.R;
 import com.team3.uniton.unitonapplication.ui.fragment.TutorialOneFragment;
 import com.team3.uniton.unitonapplication.ui.fragment.TutorialThreeFragment;
