@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">UnitonApplication</string>
+
+    <string name="main_company">유니톤</string>
+    <string name="main_company_postposition">에서</string>
+    <string name="main_date">45</string>
+    <string name="main_date_postposition">일째 출근 중</string>
+    <string name="main_myinfo">내 정보</string>
+    <string name="main_resign_preposition">완성도 : </string>
+    <string name="main_resign">1</string>
+    <string name="main_resign_postposition">/5</string>
+    <string name="main_resign_write">사직서 쓰기</string>
 </resources>
