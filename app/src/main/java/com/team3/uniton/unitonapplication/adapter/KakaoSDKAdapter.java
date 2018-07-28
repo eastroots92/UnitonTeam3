@@ -46,7 +46,7 @@ public class KakaoSDKAdapter extends KakaoAdapter {
     return new IApplicationConfig() {
       @Override
       public Context getApplicationContext() {
-        return App.getAppContext();
+        return App.getInstance().getApplicationContext();
       }
     };
   }
