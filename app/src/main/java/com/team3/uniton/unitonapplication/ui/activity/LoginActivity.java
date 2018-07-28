@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
 
   private void initLogin() {
     m_btn_login = findViewById(R.id.btn_login);
-
     m_btn_login.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -83,7 +82,6 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
     Session session = Session.getCurrentSession();
     session.addCallback(this);
     session.open( AuthType.KAKAO_LOGIN_ALL, LoginActivity.this);
-
   }
 
     // 로그인에 성공한 상태
