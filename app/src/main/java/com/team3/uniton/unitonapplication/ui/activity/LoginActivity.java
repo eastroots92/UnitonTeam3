@@ -17,6 +17,7 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
+import com.team3.uniton.unitonapplication.App;
 import com.team3.uniton.unitonapplication.R;
 import com.team3.uniton.unitonapplication.api.ServerApi;
 import com.team3.uniton.unitonapplication.model.Status;
@@ -27,14 +28,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements ISessionCallback  {
+
+  private static String TAG = LoginActivity.class.getSimpleName();
 
   private static String USER_MODEL = "USER_MODEL";
   private static String USER_ID = "USER_MODEL";
   private static String USER_NAME = "USER_NAME";
   private static String USER_COMPANY = "USER_COMPANY";
 
-  private ServerApi serverApi;
 
   private Button m_btn_login;
   private SharedPreferences sp_userData;
@@ -48,7 +50,6 @@ public class LoginActivity extends AppCompatActivity {
   }
 
   private void init() {
-    serverApi = ApiUtil.getServerApi();
     initLogin();
   }
 
@@ -66,13 +67,11 @@ public class LoginActivity extends AppCompatActivity {
   private void kakaoLogin() {
     Log.e("버튼 클릭", "클릭클릭");
     Session session = Session.getCurrentSession();
-    session.addCallback(new SessionCallback());
+    session.addCallback(this);
     session.open(AuthType.KAKAO_LOGIN_ALL, LoginActivity.this);
   }
 
 
-  // KAKAO Login Callback 받는 Class
-  public class SessionCallback implements ISessionCallback {
     // 로그인에 성공한 상태
     @Override
     public void onSessionOpened() {
@@ -83,8 +82,11 @@ public class LoginActivity extends AppCompatActivity {
     // 로그인에 실패한 상태
     @Override
     public void onSessionOpenFailed(KakaoException exception) {
+      exception.printStackTrace();
       Log.e("SessionCallback :: ", "onSessionOpenFailed : " + exception.getMessage());
     }
+
+
 
     // 사용자 정보 요청
     public void requestMe() {
@@ -124,8 +126,8 @@ public class LoginActivity extends AppCompatActivity {
               startCreateForm();
             }
           } else {
-            setUserData(id, nickname);
-            requestUserData();
+//            setUserData(id, nickname);
+            requestUserData(String.valueOf(id), nickname);
           }
         }
 
@@ -164,19 +166,20 @@ public class LoginActivity extends AppCompatActivity {
         }
       });
 
-    }
+
   }
 
-  private void requestUserData() {
-    String currentName = sp_userData.getString(USER_NAME,"");
-    String currentId = sp_userData.getString(USER_ID, "");
-    Token token = new Token(currentId,currentName);
-    serverApi.setLogin(token)
+  private void requestUserData(String id, String nickname) {
+    Token token = new Token(id, nickname);
+
+    App.serverApi.setLogin(token)
       .enqueue(new Callback<Status>() {
         @Override
         public void onResponse(Call<Status> call, Response<Status> response) {
+          Log.e(TAG, "onResponse");
           String result = response.body().getStatus();
           if ("200".equals(result)) {
+
             startCreateForm();
           }
         }

@@ -10,6 +10,8 @@ import android.util.Log;
 
 import com.kakao.auth.KakaoSDK;
 import com.team3.uniton.unitonapplication.adapter.KakaoSDKAdapter;
+import com.team3.uniton.unitonapplication.api.ServerApi;
+import com.team3.uniton.unitonapplication.util.ApiUtil;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,6 +21,7 @@ import static com.kakao.util.helper.Utility.getPackageInfo;
 
 public class App extends Application {
     private static App instance;
+    public static ServerApi serverApi;
 
     public static App getAppContext() {
         if (instance == null) {
@@ -34,6 +37,8 @@ public class App extends Application {
         instance = this;
         Log.e("App","HASH : " + getKeyHash(this));
         KakaoSDK.init(new KakaoSDKAdapter());
+
+        serverApi = ApiUtil.getServerApi();
     }
 
     public static String getKeyHash(final Context context) {
