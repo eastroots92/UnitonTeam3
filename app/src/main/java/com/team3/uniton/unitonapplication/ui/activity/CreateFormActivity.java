@@ -35,7 +35,7 @@ public class CreateFormActivity extends AppCompatActivity {
 
         calenderBtn = findViewById( R.id.calender_Btn );
         dateText = findViewById( R.id.dateText );
-        m_btn_apply = findViewById(R.id.applyBtn);
+        m_btn_apply = findViewById(R.id.btn_apply);
         et_company = findViewById(R.id.et_company);
         et_department = findViewById(R.id.et_department);
         et_position = findViewById(R.id.et_position);

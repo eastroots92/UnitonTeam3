@@ -8,22 +8,19 @@
     android:background="#f7f7f7">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="109dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="39dp"
+        android:id="@+id/scrollView"
+        android:layout_width="300dp"
+        android:layout_height="495dp"
+        android:layout_marginTop="40dp"
         android:background="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/applyBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <View
                 android:layout_width="14dp"
@@ -335,9 +332,9 @@
                 android:id="@+id/person"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="23dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="3dp"
-                android:layout_marginBottom="23dp"
                 android:gravity="center_horizontal"
                 android:text="신청인:김민영"
                 android:textColor="#555555"
@@ -358,6 +355,7 @@
         android:elevation="15dp"
         android:textStyle="bold"
         android:text="제출하기"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
