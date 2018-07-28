@@ -5,29 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.LoginActivity"
-    android:background="#e8f3fc">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="70dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="50dp"
-        android:padding="50dp"
-        android:src="@drawable/login_01"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:background="@drawable/login_img">
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
         android:layout_marginTop="8dp"
-        android:text="카카오계정으로 로그인"
+        android:textSize="16sp"
+        android:text="카카오톡으로 시작하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

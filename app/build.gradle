@@ -39,6 +39,7 @@ dependencies {
     // kakao
     implementation group: project.KAKAO_SDK_GROUP, name: 'usermgmt', version: project.KAKAO_SDK_VERSION
 
+    // indicator
     implementation 'com.romandanylyk:pageindicatorview:1.0.1'
 
     testImplementation 'junit:junit:4.12'
