@@ -28,6 +28,9 @@
 
         <activity android:name=".TutorialBaseActivity" />
         <activity android:name=".LoginActivity" />
+
+        <activity android:name=".CreateFormActivity"/>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".CreateFormActivity"></activity>
         <activity android:name=".TutorialActivity">
             <intent-filter>
@@ -36,7 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
     </application>
 
