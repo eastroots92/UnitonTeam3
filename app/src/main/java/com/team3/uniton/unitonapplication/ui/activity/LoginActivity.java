@@ -2,13 +2,12 @@ package com.team3.uniton.unitonapplication.ui.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.gson.Gson;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -176,10 +175,6 @@ public class LoginActivity extends AppCompatActivity {
       .enqueue(new Callback<Status>() {
         @Override
         public void onResponse(Call<Status> call, Response<Status> response) {
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
           String result = response.body().status;
           Log.e("LOGIN_RESPONSE", result);
           if ("200 : OK".equals(result)) {
