@@ -25,9 +25,9 @@ public interface ServerApi {
 
   @POST("/user/{id}/info")
   Call<Status> setInfo(
-      @Path("id")
-      int userId,
-      @Body
+    @Path("id")
+      String userId,
+    @Body
       Info info
   );
 
