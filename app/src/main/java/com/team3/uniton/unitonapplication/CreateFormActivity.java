@@ -1,9 +1,11 @@
 package com.team3.uniton.unitonapplication;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -16,6 +18,8 @@ public class CreateFormActivity extends AppCompatActivity {
 
     ImageButton calenderBtn;
     TextView dateText;
+    Button mApplyBtn;
+
     public String dateString;
 
     @Override
@@ -25,6 +29,17 @@ public class CreateFormActivity extends AppCompatActivity {
 
         calenderBtn = findViewById( R.id.calender_Btn );
         dateText = findViewById( R.id.dateText );
+        mApplyBtn = findViewById(R.id.applyBtn);
+
+
+        mApplyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateFormActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         setDate();
     }
 

@@ -3,6 +3,7 @@ package com.team3.uniton.unitonapplication;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -81,7 +82,8 @@ public class WriteResignationActivity extends AppCompatActivity {
         mCompleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(WriteResignationActivity.this, ResignationActivity.class);
+                startActivity(intent);
             }
         });
 
