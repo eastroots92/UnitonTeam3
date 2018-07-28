@@ -3,4 +3,16 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="white0">#ffffff</color>
+    <color name="black0">#000000</color>
+
+    <color name="bright_blue">#006eff</color>
+    <color name="background_white">#f0f0f0</color>
+    <color name="greyish_brown">#555555</color>
+    <color name="white_two">#eaeaea</color>
+    <color name="pinkish_grey">#cdcdcd</color>
+    <color name="white_three">#d8d8d8</color>
+
+    <color name="white_four">#f7f7f7</color>
 </resources>
