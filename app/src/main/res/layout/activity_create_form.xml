@@ -139,6 +139,7 @@
                 android:text="회사명" />
 
             <EditText
+                android:id="@+id/et_company"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="bottom"
@@ -165,6 +166,7 @@
                 android:text="소속" />
 
             <EditText
+                android:id="@+id/et_department"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
@@ -189,6 +191,7 @@
                 android:text="직위" />
 
             <EditText
+                android:id="@+id/et_position"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
@@ -201,7 +204,7 @@
 
 
     <Button
-        android:id="@+id/applyBtn"
+        android:id="@+id/btn_apply"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginBottom="35dp"

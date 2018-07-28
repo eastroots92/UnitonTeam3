@@ -1,8 +1,8 @@
 package com.team3.uniton.unitonapplication.model;
 
 public class Token {
-  public String id;
-  public String name;
+  private String id;
+  private String name;
 
   public Token(String id, String name) {
     this.id = id;
