@@ -25,15 +25,19 @@
 
         <activity android:name=".ui.activity.TutorialBaseActivity" />
         <activity android:name=".ui.activity.LoginActivity" />
-        <activity android:name=".ui.activity.CreateFormActivity"/>
+        <activity android:name=".ui.activity.CreateFormActivity">
+
+        </activity>
         <activity android:name=".ui.activity.MainActivity"/>
         <activity android:name=".ui.activity.ResignationActivity"/>
-        <activity android:name=".ui.activity.TutorialActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+      <activity android:name=".ui.activity.TutorialActivity">
+        <intent-filter>
+          <action android:name="android.intent.action.MAIN" />
+          <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+
+
 
     </application>
 

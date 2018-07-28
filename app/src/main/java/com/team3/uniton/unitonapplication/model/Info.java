@@ -1,14 +1,14 @@
 package com.team3.uniton.unitonapplication.model;
 
 public class Info {
-  private int join_year;
-  private int join_month;
-  private int join_day;
+  private String join_year;
+  private String join_month;
+  private String join_day;
   private String company_name;
   private String department;
   private String position;
 
-  public Info(int join_year, int join_month, int join_day, String company_name, String department, String position) {
+  public Info(String join_year, String join_month, String join_day, String company_name, String department, String position) {
     this.join_year = join_year;
     this.join_month = join_month;
     this.join_day = join_day;
@@ -17,27 +17,27 @@ public class Info {
     this.position = position;
   }
 
-  public int getJoin_year() {
+  public String getJoin_year() {
     return join_year;
   }
 
-  public void setJoin_year(int join_year) {
+  public void setJoin_year(String join_year) {
     this.join_year = join_year;
   }
 
-  public int getJoin_month() {
+  public String getJoin_month() {
     return join_month;
   }
 
-  public void setJoin_month(int join_month) {
+  public void setJoin_month(String join_month) {
     this.join_month = join_month;
   }
 
-  public int getJoin_day() {
+  public String getJoin_day() {
     return join_day;
   }
 
-  public void setJoin_day(int join_day) {
+  public void setJoin_day(String join_day) {
     this.join_day = join_day;
   }
 

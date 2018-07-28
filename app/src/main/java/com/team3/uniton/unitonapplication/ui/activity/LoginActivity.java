@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
   private static String USER_MODEL = "USER_MODEL";
-  private static String USER_ID = "USER_MODEL";
+  private static String USER_ID = "USER_ID";
   private static String USER_NAME = "USER_NAME";
   private static String USER_COMPANY = "USER_COMPANY";
 
