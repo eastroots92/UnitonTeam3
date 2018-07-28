@@ -1,18 +1,25 @@
 package com.team3.uniton.unitonapplication.ui.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.team3.uniton.unitonapplication.App;
+import com.team3.uniton.unitonapplication.model.MainModel;
 import com.team3.uniton.unitonapplication.model.MainResignationItem;
 import com.team3.uniton.unitonapplication.R;
 import com.team3.uniton.unitonapplication.ui.customView.CustomMainItemView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        requestDatas();
 
         for (int i = 0 ;i< 10 ; i++) {
             MainResignationItem data = new MainResignationItem();
@@ -66,5 +76,23 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+
+    void requestDatas() {
+        SharedPreferences currentSP = getSharedPreferences("USER_MODEL", MODE_PRIVATE);
+        String userID = currentSP.getString("USER_ID","");
+
+        App.serverApi.getMain(userID).enqueue(new Callback<MainModel>() {
+            @Override
+            public void onResponse(Call<MainModel> call, Response<MainModel> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<MainModel> call, Throwable t) {
+
+            }
+        });
     }
 }
