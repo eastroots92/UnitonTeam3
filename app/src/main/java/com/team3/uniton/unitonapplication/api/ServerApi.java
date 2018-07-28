@@ -16,7 +16,7 @@ public interface ServerApi {
   @POST("/auth/register")
   Call<Status> setLogin(
     @Body
-      String body
+      Token token
   );
 
 }

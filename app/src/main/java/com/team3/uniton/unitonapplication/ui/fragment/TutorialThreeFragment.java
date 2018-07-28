@@ -1,4 +1,4 @@
-package com.team3.uniton.unitonapplication;
+package com.team3.uniton.unitonapplication.ui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.team3.uniton.unitonapplication.R;
+import com.team3.uniton.unitonapplication.ui.activity.LoginActivity;
 
 
 public class TutorialThreeFragment extends Fragment{

@@ -1,4 +1,4 @@
-package com.team3.uniton.unitonapplication;
+package com.team3.uniton.unitonapplication.ui.customView;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.team3.uniton.unitonapplication.model.MainResignationItem;
+import com.team3.uniton.unitonapplication.R;
 
 import java.util.List;
 
@@ -43,7 +46,7 @@ public class CustomMainItemView extends LinearLayout {
     }
 
 
-    void setData(MainResignationItem data) {
+    public void setData(MainResignationItem data) {
         date.setText(data.getDate());
 
         StringBuilder builder = new StringBuilder();

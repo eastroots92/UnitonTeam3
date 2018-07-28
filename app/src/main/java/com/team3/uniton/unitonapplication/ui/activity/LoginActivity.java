@@ -1,4 +1,4 @@
-package com.team3.uniton.unitonapplication;
+package com.team3.uniton.unitonapplication.ui.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +17,7 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
+import com.team3.uniton.unitonapplication.R;
 import com.team3.uniton.unitonapplication.api.ServerApi;
 import com.team3.uniton.unitonapplication.model.Status;
 import com.team3.uniton.unitonapplication.model.Token;
@@ -170,10 +171,7 @@ public class LoginActivity extends AppCompatActivity {
     String currentName = sp_userData.getString(USER_NAME,"");
     String currentId = sp_userData.getString(USER_ID, "");
     Token token = new Token(currentId,currentName);
-    Gson gson = new Gson();
-    String json = gson.toJson(token);
-    Log.e("json", json);
-    serverApi.setLogin(json)
+    serverApi.setLogin(token)
       .enqueue(new Callback<Status>() {
         @Override
         public void onResponse(Call<Status> call, Response<Status> response) {
