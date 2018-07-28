@@ -13,13 +13,25 @@ import com.rd.PageIndicatorView;
 public class MainActivity extends AppCompatActivity {
 
     int MAX_PAGE = 3;
-//    ViewPager viewPager = findViewById( R.id.viewPager );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
 
+//        ViewPager viewPager = findViewById( R.id.viewPager );
+//        viewPager.setAdapter( new MainActivity.adapter(getSupportFragmentManager()) );
+//        PageIndicatorView pageIndicatorView = findViewById( R.id.pageIndicatorView );
+//        pageIndicatorView.setCount( 3 );
+//        pageIndicatorView.setSelection( 1 );
+
+        showTutorial();
+
+//        Intent intent = new Intent( this, LoginActivity.class );
+//        startActivity( intent );
+    }
+
+    public void showTutorial() {
         ViewPager viewPager = findViewById( R.id.viewPager );
         viewPager.setAdapter( new MainActivity.adapter(getSupportFragmentManager()) );
         PageIndicatorView pageIndicatorView = findViewById( R.id.pageIndicatorView );
@@ -41,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
                     return new TutorialTwoFragment();
                 case 2:
                     return new TutorialThreeFragment();
+//                case 3:
+//                    Intent intent = new Intent( getApplicationContext(), LoginActivity.class );
+//                    startActivity( intent );
                 default:
                     return null;
             }
