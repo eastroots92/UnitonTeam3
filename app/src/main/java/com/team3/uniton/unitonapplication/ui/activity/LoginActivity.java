@@ -2,13 +2,12 @@ package com.team3.uniton.unitonapplication.ui.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.gson.Gson;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -19,10 +18,8 @@ import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
 import com.team3.uniton.unitonapplication.App;
 import com.team3.uniton.unitonapplication.R;
-import com.team3.uniton.unitonapplication.api.ServerApi;
 import com.team3.uniton.unitonapplication.model.Status;
 import com.team3.uniton.unitonapplication.model.Token;
-import com.team3.uniton.unitonapplication.util.ApiUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -85,9 +82,9 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
     Log.e("버튼 클릭", "클릭클릭");
     Session session = Session.getCurrentSession();
     session.addCallback(this);
-    session.open(AuthType.KAKAO_LOGIN_ALL, LoginActivity.this);
-  }
+    session.open( AuthType.KAKAO_LOGIN_ALL, LoginActivity.this);
 
+  }
 
     // 로그인에 성공한 상태
     @Override
@@ -212,7 +209,7 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
 
   private void startMain() {
     startActivity(new Intent( this, MainActivity.class ));
-    finish();
+    finish();;
   }
 
   private void startCreateForm() {

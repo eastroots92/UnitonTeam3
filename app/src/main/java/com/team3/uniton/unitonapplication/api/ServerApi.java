@@ -1,6 +1,5 @@
 package com.team3.uniton.unitonapplication.api;
 
-
 import com.team3.uniton.unitonapplication.model.Info;
 import com.team3.uniton.unitonapplication.model.MainModel;
 import com.team3.uniton.unitonapplication.model.Status;

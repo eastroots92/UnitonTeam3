@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.rd.PageIndicatorView;
 import com.team3.uniton.unitonapplication.R;
 import com.team3.uniton.unitonapplication.ui.fragment.TutorialOneFragment;
 import com.team3.uniton.unitonapplication.ui.fragment.TutorialThreeFragment;
@@ -28,6 +29,10 @@ public class TutorialActivity extends AppCompatActivity {
     public void showTutorial() {
         ViewPager viewPager = findViewById( R.id.viewPager );
         viewPager.setAdapter( new TutorialActivity.adapter(getSupportFragmentManager()) );
+
+        PageIndicatorView pageIndicatorView = findViewById(R.id.pageIndicatorView);
+        pageIndicatorView.setCount(3); // specify total count of indicators
+        pageIndicatorView.setSelection(1);
     }
 
     private class adapter extends FragmentPagerAdapter {
