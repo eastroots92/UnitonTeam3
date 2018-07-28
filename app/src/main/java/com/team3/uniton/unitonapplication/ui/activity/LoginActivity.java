@@ -64,6 +64,23 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
     });
   }
 
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)) {
+      return;
+    }
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    Session.getCurrentSession().removeCallback(this);
+
+  }
+
   private void kakaoLogin() {
     Log.e("버튼 클릭", "클릭클릭");
     Session session = Session.getCurrentSession();
@@ -126,38 +143,10 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
               startCreateForm();
             }
           } else {
-//            setUserData(id, nickname);
-            requestUserData(String.valueOf(id), nickname);
+            requestUserData(id, nickname);
           }
         }
 
-        private boolean checkCreateForm() {
-          String currentCompany = sp_userData.getString(USER_COMPANY, "");
-
-          if ("".equals(currentCompany)) {
-            return false;
-          }else {
-            return true;
-          }
-        }
-
-        private void setUserData(long id, String nickname) {
-          SharedPreferences.Editor editor = sp_userData.edit();
-          editor.putString(USER_NAME, nickname);
-          editor.putString(USER_ID, String.valueOf(id));
-          editor.commit();
-        }
-
-        private Boolean checkUserData(){
-          sp_userData = getSharedPreferences(USER_MODEL, MODE_PRIVATE);
-          String currentName = sp_userData.getString(USER_NAME, "");
-
-          if ("".equals(currentName)) {
-            return false;
-          }else {
-            return true;
-          }
-        }
 
         // 사용자 정보 요청 실패
         @Override
@@ -169,8 +158,37 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
 
   }
 
-  private void requestUserData(String id, String nickname) {
-    Token token = new Token(id, nickname);
+  private void setUserData(long id, String nickname) {
+    SharedPreferences.Editor editor = sp_userData.edit();
+    editor.putString(USER_NAME, nickname);
+    editor.putString(USER_ID, String.valueOf(id));
+    editor.commit();
+  }
+
+
+  private boolean checkCreateForm() {
+    String currentCompany = sp_userData.getString(USER_COMPANY, "");
+
+    if ("".equals(currentCompany)) {
+      return false;
+    }else {
+      return true;
+    }
+  }
+
+  private Boolean checkUserData(){
+    sp_userData = getSharedPreferences(USER_MODEL, MODE_PRIVATE);
+    String currentName = sp_userData.getString(USER_NAME, "");
+
+    if ("".equals(currentName)) {
+      return false;
+    }else {
+      return true;
+    }
+  }
+
+  private void requestUserData(final long id, final String nickname) {
+    Token token = new Token(String.valueOf(id), nickname);
 
     App.serverApi.setLogin(token)
       .enqueue(new Callback<Status>() {
@@ -179,6 +197,7 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
           Log.e(TAG, "onResponse");
           String result = response.body().getStatus();
           if ("200".equals(result)) {
+            setUserData(id, nickname);
             startCreateForm();
           }
         }
