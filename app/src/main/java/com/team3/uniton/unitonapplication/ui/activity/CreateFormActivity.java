@@ -37,8 +37,10 @@ public class CreateFormActivity extends AppCompatActivity {
     private EditText et_company;
     private EditText et_department;
     private EditText et_position;
+
     private SharedPreferences sharedPreferences;
     private Info info;
+
 
     public String dateString;
 

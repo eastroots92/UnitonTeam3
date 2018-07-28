@@ -1,6 +1,7 @@
 package com.team3.uniton.unitonapplication.model;
 
 public class Info {
+
   private String join_year;
   private String join_month;
   private String join_day;
@@ -65,3 +66,4 @@ public class Info {
     this.position = position;
   }
 }
+
