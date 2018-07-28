@@ -2,8 +2,10 @@ package com.team3.uniton.unitonapplication;
 
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,13 +14,16 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.kakao.sdk.newtoneapi.SpeechRecognizeListener;
-import com.kakao.sdk.newtoneapi.SpeechRecognizerActivity;
 import com.kakao.sdk.newtoneapi.SpeechRecognizerClient;
 import com.kakao.sdk.newtoneapi.SpeechRecognizerManager;
 
@@ -34,38 +39,74 @@ public class WriteResignationActivity extends AppCompatActivity {
 
     Button mButton;
 
+    View mLine;
+    DynamicSineWaveView mWave;
+
+    ImageView mRecordButton;
+
+    boolean isAnimating = false;
+    boolean isKeyboardShowing = true;
+
+    LinearLayout mContentsLayout;
+
+    ImageView mBackButton;
+    TextView mCompleteButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_resignation);
 
-        mButton = findViewById(R.id.button);
+        // statusbar 색 변경
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            int flags = window.getDecorView().getSystemUiVisibility();
+            flags = flags ^ View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            window.getDecorView().setSystemUiVisibility(flags);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.white_four));
+        }
 
-        mButton.setOnTouchListener(new View.OnTouchListener() {
+        mContentsLayout = findViewById(R.id.content_layout);
+        mBackButton = findViewById(R.id.backButton);
+        mCompleteButton = findViewById(R.id.completeButton);
+
+        mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    mSpeachClient.startRecording(true);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    mSpeachClient.stopRecording();
-                }
-                return false;
+            public void onClick(View v) {
+                finish();
             }
         });
 
-//        mButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(getApplicationContext(), VoiceRecoActivity.class);
-//
-//                i.putExtra(SpeechRecognizerActivity.EXTRA_KEY_API_KEY, "1dad9d40bca7136505c4954e5b7c8eab");
-//// apiKey는 신청과정을 통해 package와 매치되도록 발급받은 APIKey 문자열 값.
-//
-//                startActivityForResult(i, 0);
-//
-//            }
-//        });
+        mCompleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WriteResignationActivity.this, ResignationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mWave = findViewById(R.id.waveView);
+        mWave.addWave(0.5f, 0.5f, 0, 0, 0); // Fist wave is for the shape of other waves.
+        mWave.addWave(0.1f, 2f, 0.7f, getResources().getColor(R.color.bright_blue), 3);
+        mWave.setBaseWaveAmplitudeScale(0);
+        mWave.startAnimation();
+
+        mRecordButton = findViewById(R.id.record_button);
+        mRecordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isAnimating) {
+                    mWave.setBaseWaveAmplitudeScale(0);
+                    mWave.startAnimation();
+                } else {
+                    mWave.setBaseWaveAmplitudeScale(0.5f);
+                    mWave.startAnimation();
+                }
+                isAnimating = !isAnimating;
+            }
+        });
 
         requestPermission();
     }
@@ -75,9 +116,31 @@ public class WriteResignationActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-
+        mWave.stopAnimation();
         // API를 더이상 사용하지 않을 때 finalizeLibrary()를 호출한다.
         SpeechRecognizerManager.getInstance().finalizeLibrary();
+    }
+
+    private void showKeyboard() {
+        InputMethodManager imm = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+        if(imm != null){
+            imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
+        }
+    }
+
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+        if(imm != null){
+            imm.toggleSoftInput(0, InputMethodManager.HIDE_IMPLICIT_ONLY);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
     }
 
     @Override
@@ -97,6 +160,7 @@ public class WriteResignationActivity extends AppCompatActivity {
                 break;
         }
     }
+
 
     private void requestPermission() {
         // Here, thisActivity is the current activity

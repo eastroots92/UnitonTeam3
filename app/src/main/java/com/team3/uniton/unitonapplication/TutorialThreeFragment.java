@@ -10,7 +10,6 @@ import android.widget.Button;
 
 
 public class TutorialThreeFragment extends Fragment{
-    private View view;
     private Button m_btn_start;
 
 

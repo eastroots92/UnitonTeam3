@@ -16,6 +16,7 @@ import java.security.NoSuchAlgorithmException;
 
 import static com.kakao.util.helper.Utility.getPackageInfo;
 
+
 public class App extends Application {
     private static App instance;
 
@@ -34,7 +35,6 @@ public class App extends Application {
         Log.e("App","HASH : " + getKeyHash(this));
         KakaoSDK.init(new KakaoSDKAdapter());
     }
-
 
     public static String getKeyHash(final Context context) {
         PackageInfo packageInfo = getPackageInfo(context, PackageManager.GET_SIGNATURES);

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="Kotlin2JsCompilerArguments">
     <option name="sourceMapEmbedSources" />
     <option name="sourceMapPrefix" />
   </component>
+=======
+>>>>>>> 5639da60a7830ac5ed0d8fcddaa7b0a8d7ddb9d7
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
@@ -29,7 +32,11 @@
       </value>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8 (5)" project-jdk-type="JavaSDK">
+>>>>>>> 5639da60a7830ac5ed0d8fcddaa7b0a8d7ddb9d7
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
