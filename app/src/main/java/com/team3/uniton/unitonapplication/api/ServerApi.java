@@ -33,7 +33,6 @@ public interface ServerApi {
       Info info
   );
 
-
   @GET("/user/{id}/main")
   Call<MainModel> getMain(
           @Path("id")
