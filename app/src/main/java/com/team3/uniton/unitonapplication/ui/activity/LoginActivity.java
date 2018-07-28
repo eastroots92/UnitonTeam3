@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
   private static String TAG = LoginActivity.class.getSimpleName();
 
   private static String USER_MODEL = "USER_MODEL";
-  private static String USER_ID = "USER_MODEL";
+  private static String USER_ID = "USER_ID";
   private static String USER_NAME = "USER_NAME";
   private static String USER_COMPANY = "USER_COMPANY";
 
@@ -191,6 +191,7 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
         public void onResponse(Call<Status> call, Response<Status> response) {
           Log.e(TAG, "onResponse");
           String result = response.body().getStatus();
+
           if ("200".equals(result)) {
             setUserData(id, nickname);
             startCreateForm();

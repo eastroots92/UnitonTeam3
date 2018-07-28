@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kakao.sdk.newtoneapi.SpeechRecognizeListener;
 import com.kakao.sdk.newtoneapi.SpeechRecognizerClient;
@@ -102,9 +103,11 @@ public class WriteResignationActivity extends AppCompatActivity {
                 if (isAnimating) {
                     mWave.setBaseWaveAmplitudeScale(0);
                     mWave.startAnimation();
+                    mSpeachClient.startRecording(true);
                 } else {
                     mWave.setBaseWaveAmplitudeScale(0.5f);
                     mWave.startAnimation();
+                    mSpeachClient.stopRecording();
                 }
                 isAnimating = !isAnimating;
             }
@@ -243,7 +246,6 @@ public class WriteResignationActivity extends AppCompatActivity {
              */
             @Override
             public void onPartialResult(String partialResult) {
-                Log.e(TAG, "onPartialResult" + partialResult);
             }
 
             /**
@@ -258,11 +260,12 @@ public class WriteResignationActivity extends AppCompatActivity {
                 ArrayList<Integer> confs =   results.getIntegerArrayList(SpeechRecognizerClient.KEY_CONFIDENCE_VALUES);
 
                 Log.e(TAG, "onResults: " + texts.get(0));
+                Toast.makeText(WriteResignationActivity.this, texts.get(0), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onAudioLevel(float audioLevel) {
-                Log.e(TAG, "onAudioLevel");
+
             }
 
             @Override
