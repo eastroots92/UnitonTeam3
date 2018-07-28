@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="129dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/greyish_brown"
+        android:textSize="14sp"
+        tools:text="2018-05-21"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="17dp"/>
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@drawable/round"
+        app:layout_constraintTop_toTopOf="@+id/date"
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintRight_toLeftOf="@+id/date"
+        android:layout_marginRight="31dp"/>
+
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@drawable/round"
+        app:layout_constraintTop_toTopOf="@+id/date"
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintLeft_toRightOf="@+id/date"
+        android:layout_marginLeft="31dp"/>
+
+    <TextView
+        android:id="@+id/contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:lineSpacingExtra="8sp"
+        android:text="팀장님이 회식자리를 너무 강요해요..
+일주일에 술자리가 3번씩...ㅠㅠ
+정말 너무 한거 같아요."
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/pinkish_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,188 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:fitsSystemWindows="true"
-  tools:context=".MainActivity">
-
-  <android.support.design.widget.AppBarLayout
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/background_white">
 
-    <android.support.design.widget.CollapsingToolbarLayout
-      android:id="@+id/ctl_header"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:background="@color/white0"
-      android:fitsSystemWindows="true"
-      app:layout_scrollFlags="scroll"
-      app:title=" ">
-
-      <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="12dp">
+        android:layout_height="match_parent">
 
-        <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="344dp"
+            android:background="@color/bright_blue"/>
 
-          <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal">
-
-              <TextView
-                android:id="@+id/tv_company"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_company"
-                android:textColor="@color/black0" />
-
-              <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_company_postposition"
-                android:textColor="@color/black0" />
-            </LinearLayout>
-
-            <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal">
-
-              <TextView
-                android:id="@+id/tv_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_date"
-                android:textColor="@color/black0" />
-
-              <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_date_postposition"
-                android:textColor="@color/black0" />
-            </LinearLayout>
-          </LinearLayout>
-
-          <TextView
-            android:id="@+id/tv_myinfo"
+        <View
+            android:layout_width="257dp"
+            android:layout_height="1dp"
+            android:background="@color/white0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="30dp"
+            />
+        
+        <TextView
+            android:id="@+id/myInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_myinfo"
-            android:textColor="@color/black0" />
+            android:text="내 정보"
+            android:textColor="@color/white0"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="12sp"
+            android:paddingRight="20dp"
+            android:paddingTop="8dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="13dp"/>
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:textColor="@color/white0"
+            android:text="사단법인 멋쟁이 사자처럼 \n45일째 근무 중"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="29dp"
+            android:layout_marginLeft="31dp"/>
+
+        <ImageView
+            android:id="@+id/image0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/page_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="118dp"
+            />
+
+        <TextView
+            android:id="@+id/image_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/bright_blue"
+            app:layout_constraintTop_toTopOf="@+id/image0"
+            app:layout_constraintLeft_toLeftOf="@+id/image0"
+            app:layout_constraintRight_toRightOf="@+id/image0"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"    
+            android:text="1/5완성"/>
+        
+        <Button
+            android:id="@+id/write_button"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image0"
+            android:layout_marginTop="12dp"
+            android:text="사직서 작성하기"
+            android:textSize="16sp"
+            android:textColor="@color/bright_blue"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/button_background"
+            />
 
         <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:gravity="center"
-          android:padding="12dp">
-
-          <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/layout_main"
-            android:gravity="center_horizontal"
+            android:id="@+id/list_layout"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white0"
+            android:elevation="2dp"
+            app:layout_constraintTop_toBottomOf="@+id/write_button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp">
 
-            <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="end"
-              android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_my_resignation"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:text="내가 품은 사직서: 8개"
+                android:gravity="center_vertical"
+                android:paddingLeft="17dp"
+                android:textSize="14sp"
+                />
 
-              <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_resign_preposition"
-                android:textColor="@color/black0" />
-
-              <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_resign"
-                android:textColor="@color/black0" />
-
-              <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_resign_postposition"
-                android:textColor="@color/black0" />
-            </LinearLayout>
-
-            <ImageView
-              android:layout_width="80dp"
-              android:layout_height="80dp"
-              android:src="@mipmap/ic_launcher" />
-
-            <Button
-              android:layout_width="match_parent"
-              android:layout_height="60dp"
-              android:text="@string/main_resign_write" />
-
-          </LinearLayout>
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/pinkish_grey"
+                />
         </LinearLayout>
 
-        <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal">
 
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/main_myresign_preposition"
-            android:textColor="@color/black0" />
+    </android.support.constraint.ConstraintLayout>
 
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/main_myresign"
-            android:textColor="@color/black0" />
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/main_myresign_postposition"
-            android:textColor="@color/black0" />
-        </LinearLayout>
-
-      </LinearLayout>
-
-      <android.support.v7.widget.Toolbar
-        android:id="@+id/tb_header"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:layout_collapseMode="pin"
-        />
-
-    </android.support.design.widget.CollapsingToolbarLayout>
-
-  </android.support.design.widget.AppBarLayout>
-
-  <android.support.v4.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white0"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
-  </android.support.v4.widget.NestedScrollView>
-
-</android.support.design.widget.CoordinatorLayout>
+</ScrollView>
