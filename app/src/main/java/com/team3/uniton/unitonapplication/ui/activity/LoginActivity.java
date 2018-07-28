@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
 
   private void initLogin() {
     m_btn_login = findViewById(R.id.btn_login);
-
     m_btn_login.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {

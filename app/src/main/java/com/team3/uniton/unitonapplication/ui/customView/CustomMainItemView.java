@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.team3.uniton.unitonapplication.model.MainResignationItem;
 import com.team3.uniton.unitonapplication.R;
+import com.team3.uniton.unitonapplication.model.Resignation;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class CustomMainItemView extends LinearLayout {
     TextView date;
     TextView contents;
 
+    Resignation mData;
 
     public CustomMainItemView(Context context) {
         super(context);
@@ -46,19 +48,18 @@ public class CustomMainItemView extends LinearLayout {
     }
 
 
-    public void setData(MainResignationItem data) {
-        date.setText(data.getDate());
+    public void setData(Resignation data) {
 
+        mData = data;
+
+        date.setText(data.getDate());
         StringBuilder builder = new StringBuilder();
-        List<String> datas = data.getContents();
-        for(int i = 0; i < datas.size(); i++) {
-            if (i != datas.size() - 1) {
-                builder.append(datas.get(i));
-                builder.append("\n");
-            } else {
-                builder.append(datas.get(i));
-            }
-        }
+        builder.append(data.getFirst_reason());
+        builder.append("\n");
+        builder.append(data.getSecond_reason());
+        builder.append("\n");
+        builder.append(data.getThird_reason());
+
         contents.setText(builder.toString());
     }
 }

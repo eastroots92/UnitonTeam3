@@ -57,7 +57,6 @@ public class CreateFormActivity extends AppCompatActivity {
         et_position = findViewById(R.id.et_position);
 
         serverApi = ApiUtil.getServerApi();
-
         m_btn_apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,7 +140,7 @@ public class CreateFormActivity extends AppCompatActivity {
         calenderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatePickerDialog dialog = new DatePickerDialog(CreateFormActivity.this, new DatePickerDialog.OnDateSetListener() {
+                final DatePickerDialog dialog = new DatePickerDialog(CreateFormActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         dateString = String.format("%d년 %d월 %d일", year, month + 1, dayOfMonth);

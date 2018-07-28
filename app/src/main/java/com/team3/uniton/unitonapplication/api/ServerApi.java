@@ -3,6 +3,8 @@ package com.team3.uniton.unitonapplication.api;
 import com.team3.uniton.unitonapplication.model.Info;
 import com.team3.uniton.unitonapplication.model.MainModel;
 import com.team3.uniton.unitonapplication.model.ResignationItem;
+import com.team3.uniton.unitonapplication.model.Reason;
+import com.team3.uniton.unitonapplication.model.Reasons;
 import com.team3.uniton.unitonapplication.model.Status;
 import com.team3.uniton.unitonapplication.model.Token;
 
@@ -44,5 +46,19 @@ public interface ServerApi {
     String userId,
     @Path("resignationId")
     String resignationId
+  );
+
+  @GET("/user/{id}/resignation")
+  Call<Reasons> getReasons(
+          @Path("id")
+          String userId
+  );
+
+  @POST("/user/{id}/resignation")
+  Call<Status> postReasons(
+          @Path("id")
+          String userId,
+          @Body
+          Reason reason
   );
 }
