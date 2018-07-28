@@ -12,7 +12,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.team3.uniton.unitonapplication.R;
-import com.team3.uniton.unitonapplication.model.Info;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
