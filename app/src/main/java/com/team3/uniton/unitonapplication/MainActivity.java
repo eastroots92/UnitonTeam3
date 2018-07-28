@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.rd.PageIndicatorView;
+
 public class MainActivity extends AppCompatActivity {
 
     int MAX_PAGE = 3;
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPager viewPager = findViewById( R.id.viewPager );
         viewPager.setAdapter( new MainActivity.adapter(getSupportFragmentManager()) );
+        PageIndicatorView pageIndicatorView = findViewById( R.id.pageIndicatorView );
+        pageIndicatorView.setCount( 3 );
+        pageIndicatorView.setSelection( 1 );
     }
 
     private class adapter extends FragmentPagerAdapter {
