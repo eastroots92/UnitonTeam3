@@ -4,165 +4,217 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#026eff"
     tools:context=".CreateFormActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:layout_marginBottom="23dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp">
+
+        <View
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginEnd="90dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/circle_gray"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+        </View>
+
+        <View
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/circle_gray"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+        </View>
+
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="55dp"
         android:text="어떤 사직서를 \n만들어 볼까요?"
         android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#026eff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/line_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"/>
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:orientation="vertical"
+        android:layout_margin="50dp"
+        android:paddingBottom="15dp"
         android:padding="10dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/line"
         app:layout_constraintVertical_bias="0.319">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="30dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:textColor="#909090"
+                android:layout_gravity="center"
                 android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 android:text="입사일" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_marginStart="15dp"
+                android:gravity="bottom"
+                android:background="@null"
+                android:layout_width="185dp"
+                android:layout_height="match_parent"/>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+            <ImageButton
+                android:id="@+id/calender_Btn"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_vertical|right"
+                android:padding="0dp"
+                android:scaleType="centerCrop"
+                android:background="@null"
+                android:src="@drawable/btn_calender" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="30dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:textColor="#909090"
+                android:layout_gravity="center"
                 android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 android:text="회사명" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:gravity="bottom"
+                android:layout_marginStart="15dp"
+                android:textSize="14sp"/>
 
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="30dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:textColor="#909090"
+                android:layout_gravity="center"
                 android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 android:text="소속" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_marginStart="15dp"
+                android:textSize="14sp"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="30dp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:textColor="#909090"
+                android:layout_gravity="center"
                 android:gravity="center"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 android:text="직위" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_marginStart="15dp"
+                android:gravity="bottom"
+                android:textSize="14sp"/>
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="사직서에 사직사유를 몇 개 기입할까요?" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:text="3개"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:text="5개"/>
-
-
-        </RadioGroup>
 
     </LinearLayout>
 
 
     <Button
         android:id="@+id/applyBtn"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="35dp"
+        android:textColor="#ffffff"
+        android:elevation="15dp"
+        android:textStyle="bold"
         android:text="등록하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:background="@drawable/background_blue"
         tools:ignore="MissingConstraints" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
