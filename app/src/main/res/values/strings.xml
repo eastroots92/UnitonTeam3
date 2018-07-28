@@ -13,4 +13,8 @@
     <string name="main_myresign_preposition">내가 품은 사직서 : </string>
     <string name="main_myresign">8</string>
     <string name="main_myresign_postposition">개</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
