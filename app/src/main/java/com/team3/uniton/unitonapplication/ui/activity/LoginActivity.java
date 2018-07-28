@@ -171,12 +171,15 @@ public class LoginActivity extends AppCompatActivity {
     String currentName = sp_userData.getString(USER_NAME,"");
     String currentId = sp_userData.getString(USER_ID, "");
     Token token = new Token(currentId,currentName);
+
     serverApi.setLogin(token)
       .enqueue(new Callback<Status>() {
         @Override
         public void onResponse(Call<Status> call, Response<Status> response) {
-          String result = response.body().getStatus();
-          if ("200".equals(result)) {
+
+          String result = response.body().status;
+          Log.e("LOGIN_RESPONSE", result);
+          if ("200 : OK".equals(result)) {
             startCreateForm();
           }
         }
