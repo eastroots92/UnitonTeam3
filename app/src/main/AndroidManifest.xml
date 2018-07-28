@@ -18,7 +18,8 @@
         android:largeHeap="true"
         android:name=".App"
         android:theme="@style/AppTheme">
-        <activity android:name=".WriteResignationActivity">
+        <activity android:name=".WriteResignationActivity"
+            android:windowSoftInputMode="stateAlwaysVisible">
 
         </activity>
 

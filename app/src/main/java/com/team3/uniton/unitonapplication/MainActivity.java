@@ -1,5 +1,6 @@
 package com.team3.uniton.unitonapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,11 +22,23 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout mListLayout;
 
+    Button mWriteResignationButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
 
+        mWriteResignationButton = findViewById(R.id.write_button);
+
+        mWriteResignationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WriteResignationActivity.class);
+                startActivity(intent);
+            }
+        });
 
         for (int i = 0 ;i< 10 ; i++) {
             MainResignationItem data = new MainResignationItem();
