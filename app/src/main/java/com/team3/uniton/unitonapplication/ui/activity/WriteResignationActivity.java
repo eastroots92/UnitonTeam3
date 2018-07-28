@@ -4,6 +4,7 @@ package com.team3.uniton.unitonapplication.ui.activity;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,16 +22,26 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kakao.sdk.newtoneapi.SpeechRecognizeListener;
 import com.kakao.sdk.newtoneapi.SpeechRecognizerClient;
 import com.kakao.sdk.newtoneapi.SpeechRecognizerManager;
+import com.team3.uniton.unitonapplication.App;
 import com.team3.uniton.unitonapplication.R;
+import com.team3.uniton.unitonapplication.model.Reason;
+import com.team3.uniton.unitonapplication.model.Reasons;
+import com.team3.uniton.unitonapplication.model.Status;
 import com.team3.uniton.unitonapplication.ui.customView.DynamicSineWaveView;
+import com.team3.uniton.unitonapplication.ui.customView.ReasonItemView;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class WriteResignationActivity extends AppCompatActivity {
 
@@ -40,9 +51,6 @@ public class WriteResignationActivity extends AppCompatActivity {
     Handler mHandler = new Handler(Looper.getMainLooper());
     SpeechRecognizerClient mSpeachClient;
 
-    Button mButton;
-
-    View mLine;
     DynamicSineWaveView mWave;
 
     ImageView mRecordButton;
@@ -55,6 +63,7 @@ public class WriteResignationActivity extends AppCompatActivity {
     ImageView mBackButton;
     TextView mCompleteButton;
 
+    ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +80,9 @@ public class WriteResignationActivity extends AppCompatActivity {
             window.setStatusBarColor(getResources().getColor(R.color.white_four));
         }
 
+        SpeechRecognizerManager.getInstance().initializeLibrary(this);
+
+        mProgressBar = findViewById(R.id.progressBar);
         mContentsLayout = findViewById(R.id.content_layout);
         mBackButton = findViewById(R.id.backButton);
         mCompleteButton = findViewById(R.id.completeButton);
@@ -85,8 +97,8 @@ public class WriteResignationActivity extends AppCompatActivity {
         mCompleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WriteResignationActivity.this, ResignationActivity.class);
-                startActivity(intent);
+
+                postReasons();
             }
         });
 
@@ -114,8 +126,101 @@ public class WriteResignationActivity extends AppCompatActivity {
         });
 
         requestPermission();
+        requestDatas();
     }
 
+
+    void requestDatas() {
+
+        SharedPreferences currentSP = getSharedPreferences("USER_MODEL", MODE_PRIVATE);
+        String userID = currentSP.getString("USER_ID","");
+
+        App.serverApi.getReasons(userID).enqueue(new Callback<Reasons>() {
+            @Override
+            public void onResponse(Call<Reasons> call, Response<Reasons> response) {
+                addViews(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Reasons> call, Throwable t) {
+
+            }
+        });
+    }
+
+    void addViews(Reasons datas) {
+        if (datas.getCurrent_reason_count() == 0) {
+            ReasonItemView view = new ReasonItemView(this);
+            view.setData(1, datas.getFirst_reason(), true);
+            mContentsLayout.addView(view);
+        }
+
+        if (datas.getCurrent_reason_count() == 1) {
+            ReasonItemView view = new ReasonItemView(this);
+            view.setData(1, datas.getFirst_reason(), false);
+            mContentsLayout.addView(view);
+
+            ReasonItemView view1 = new ReasonItemView(this);
+            view1.setData(2, datas.getSecond_reason(), true);
+            mContentsLayout.addView(view1);
+
+        }
+
+        if (datas.getCurrent_reason_count() == 2) {
+
+            ReasonItemView view = new ReasonItemView(this);
+            view.setData(1, datas.getFirst_reason(), false);
+            mContentsLayout.addView(view);
+            ReasonItemView view1 = new ReasonItemView(this);
+            view1.setData(2, datas.getFirst_reason(), false);
+            mContentsLayout.addView(view1);
+            ReasonItemView view2 = new ReasonItemView(this);
+            view2.setData(3, datas.getSecond_reason(), true);
+            mContentsLayout.addView(view2);
+        }
+
+        if (datas.getCurrent_reason_count() == 3) {
+
+            ReasonItemView view = new ReasonItemView(this);
+            view.setData(1, datas.getFirst_reason(), false);
+            mContentsLayout.addView(view);
+            ReasonItemView view1 = new ReasonItemView(this);
+            view1.setData(2, datas.getFirst_reason(), false);
+            mContentsLayout.addView(view1);
+            ReasonItemView view2 = new ReasonItemView(this);
+            view2.setData(3, datas.getSecond_reason(), false);
+            mContentsLayout.addView(view2);
+        }
+
+    }
+
+    void postReasons() {
+
+        mProgressBar.setVisibility(View.VISIBLE);
+        SharedPreferences currentSP = getSharedPreferences("USER_MODEL", MODE_PRIVATE);
+        String userID = currentSP.getString("USER_ID","");
+
+        ReasonItemView view = (ReasonItemView)mContentsLayout.getChildAt(mContentsLayout.getChildCount() - 1);
+        Reason reason = new Reason();
+        reason.setReason(view.getText());
+        App.serverApi.postReasons(userID, reason).enqueue(new Callback<Status>() {
+            @Override
+            public void onResponse(Call<Status> call, Response<Status> response) {
+                String result = response.body().status;
+                if ("200".equals(result)) {
+                    Intent intent = new Intent(WriteResignationActivity.this, ResignationActivity.class);
+                    startActivity(intent);
+                }
+                mProgressBar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onFailure(Call<Status> call, Throwable t) {
+                mProgressBar.setVisibility(View.INVISIBLE);
+
+            }
+        });
+    }
 
     @Override
     protected void onDestroy() {
@@ -209,7 +314,6 @@ public class WriteResignationActivity extends AppCompatActivity {
         // library를 초기화 합니다.
         // API를 사용할 시점이 되었을 때 initializeLibrary(Context)를 호출한다.
         // 사용을 마치면 finalizeLibrary()를 호출해야 한다.
-        SpeechRecognizerManager.getInstance().initializeLibrary(this);
 
         // 클라이언트 생성
         SpeechRecognizerClient.Builder builder = new SpeechRecognizerClient.Builder()
@@ -220,23 +324,27 @@ public class WriteResignationActivity extends AppCompatActivity {
         // 음성 인식 중에 발생하는 다양한 이벤트 처리
         mSpeachClient.setSpeechRecognizeListener(new SpeechRecognizeListener() {
             @Override
-            public void onReady() {
-                Log.e(TAG, "onReady");
+            public void onReady(){
             }
 
             @Override
-            public void onBeginningOfSpeech() {
-                Log.e(TAG, "onBeginingOfSpeech");
+            public void onBeginningOfSpeech(){
             }
 
             @Override
             public void onEndOfSpeech() {
-                Log.e(TAG, "onEndOfSpeech");
+
             }
 
             @Override
-            public void onError(int errorCode, String errorMsg) {
-                Log.e(TAG, "onError \n errorCode:"  + errorCode + "\n errorMsg:" + errorMsg);
+            public void onError(final int errorCode, final String errorMsg) {
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e(TAG, "onError \n errorCode:"  + errorCode + "\n errorMsg:" + errorMsg);
+
+                    }
+                });
             }
 
             /**
@@ -255,12 +363,19 @@ public class WriteResignationActivity extends AppCompatActivity {
              신뢰도값은 항상 0보다 크거나 같은 정수이며, 문자열 목록과 같은 개수입니다.
              */
             @Override
-            public void onResults(Bundle results) {
-                ArrayList<String> texts =  results.getStringArrayList(SpeechRecognizerClient.KEY_RECOGNITION_RESULTS);
-                ArrayList<Integer> confs =   results.getIntegerArrayList(SpeechRecognizerClient.KEY_CONFIDENCE_VALUES);
+            public void onResults(final Bundle results) {
 
-                Log.e(TAG, "onResults: " + texts.get(0));
-                Toast.makeText(WriteResignationActivity.this, texts.get(0), Toast.LENGTH_SHORT).show();
+                mHandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        ArrayList<String> texts =  results.getStringArrayList(SpeechRecognizerClient.KEY_RECOGNITION_RESULTS);
+                        ArrayList<Integer> confs =   results.getIntegerArrayList(SpeechRecognizerClient.KEY_CONFIDENCE_VALUES);
+
+                        Log.e(TAG, "onResults: " + texts.get(0));
+                        Log.e(TAG, "size = " + texts.size());
+                        Toast.makeText(WriteResignationActivity.this, texts.get(0), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
@@ -270,7 +385,7 @@ public class WriteResignationActivity extends AppCompatActivity {
 
             @Override
             public void onFinished() {
-                Log.e(TAG, "onFinished");
+
             }
         });
     }

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingBottom="21dp">
 
     <TextView
         android:id="@+id/index"
@@ -23,7 +24,10 @@
         android:layout_marginTop="2dp"
         android:layout_marginLeft="14dp"
         android:layout_marginRight="14dp"
+        android:background="@null"
         android:textSize="14sp"
+        android:lineSpacingExtra="8dp"
         android:text="오늘은 아침부터 과장님이 욕을 했다. 매일 사람을 인격적으로깔보는 데 참기가 너무 힘들다..."/>
+
 
 </LinearLayout>

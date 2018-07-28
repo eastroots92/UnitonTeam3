@@ -51,7 +51,7 @@ public class CustomMainItemView extends LinearLayout {
     public void setData(Resignation data) {
 
         mData = data;
-        
+
         date.setText(data.getDate());
         StringBuilder builder = new StringBuilder();
         builder.append(data.getFirst_reason());
