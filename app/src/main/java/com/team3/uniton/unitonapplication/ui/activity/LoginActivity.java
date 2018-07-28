@@ -179,7 +179,7 @@ public class LoginActivity extends AppCompatActivity {
 
           String result = response.body().status;
           Log.e("LOGIN_RESPONSE", result);
-          if ("200 : OK".equals(result)) {
+          if ("200".equals(result)) {
             startCreateForm();
           }
         }

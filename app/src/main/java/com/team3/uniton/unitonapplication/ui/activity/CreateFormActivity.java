@@ -37,6 +37,8 @@ public class CreateFormActivity extends AppCompatActivity {
     private EditText et_company;
     private EditText et_department;
     private EditText et_position;
+    private SharedPreferences sharedPreferences;
+    private Info info;
 
     public String dateString;
 
@@ -58,7 +60,6 @@ public class CreateFormActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 requestInfoManager();
-                startMain();
             }
         });
 
@@ -66,7 +67,7 @@ public class CreateFormActivity extends AppCompatActivity {
     }
 
     private void requestInfoManager() {
-        Info info = getInfoData();
+        info = getInfoData();
 
         Gson gson = new Gson();
         String json = gson.toJson(info);
@@ -83,7 +84,8 @@ public class CreateFormActivity extends AppCompatActivity {
           @Override
           public void onResponse(Call<Status> call, Response<Status> response) {
             String result = response.body().status;
-            if ("200 : OK".equals(result)) {
+            if ("200".equals(result)) {
+              setUserInfo();
               startMain();
             }
           }
@@ -93,6 +95,18 @@ public class CreateFormActivity extends AppCompatActivity {
             Log.e("REQUESTLOGIN_ERROR",t.toString());
           }
         });
+  }
+
+  private void setUserInfo() {
+    sharedPreferences = getSharedPreferences("USER_MODEL", MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPreferences.edit();
+    editor.putString("USER_COMPANY", info.getCompany_name());
+    editor.putString("USER_DEPARTMENT", info.getDepartment());
+    editor.putString("USER_POSITION", info.getPosition());
+    editor.putString("USER_YEAR", info.getJoin_year());
+    editor.putString("USER_MONTH", info.getJoin_month());
+    editor.putString("USER_DAY", info.getJoin_day());
+    editor.commit();
   }
 
   private Info getInfoData() {
