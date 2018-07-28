@@ -1,18 +1,22 @@
 package com.team3.uniton.unitonapplication.api;
 
-import com.team3.uniton.unitonapplication.model.Movie;
+import com.team3.uniton.unitonapplication.model.Status;
 import com.team3.uniton.unitonapplication.model.Token;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface ServerApi {
 
   @GET("/auth/login/fail")
-  Call<Token> getLogin();
+  Call<Status> getLogin();
 
-  @GET("/get")
-  Call<Movie> getMovie();
-
+  @POST("/auth/register")
+  Call<Status> setLogin(
+    @Body
+      String body
+  );
 
 }

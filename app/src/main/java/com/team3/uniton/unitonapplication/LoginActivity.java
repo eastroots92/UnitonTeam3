@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.gson.Gson;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -17,6 +18,14 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.exception.KakaoException;
+import com.team3.uniton.unitonapplication.api.ServerApi;
+import com.team3.uniton.unitonapplication.model.Status;
+import com.team3.uniton.unitonapplication.model.Token;
+import com.team3.uniton.unitonapplication.util.ApiUtil;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
   private static String USER_ID = "USER_MODEL";
   private static String USER_NAME = "USER_NAME";
   private static String USER_COMPANY = "USER_COMPANY";
+
+  private ServerApi serverApi;
 
   private Button m_btn_login;
   private SharedPreferences sp_userData;
@@ -37,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
   }
 
   private void init() {
+    serverApi = ApiUtil.getServerApi();
     initLogin();
   }
 
@@ -104,10 +116,6 @@ public class LoginActivity extends AppCompatActivity {
           boolean isLogined = checkUserData();
 
           if (isLogined) {
-            setUserData(id, nickname);
-            startCreateForm();
-
-          } else {
             boolean isCreateForm = checkCreateForm();
 
             if (isCreateForm) {
@@ -115,6 +123,9 @@ public class LoginActivity extends AppCompatActivity {
             } else {
               startCreateForm();
             }
+          } else {
+            setUserData(id, nickname);
+            requestUserData();
           }
         }
 
@@ -153,6 +164,30 @@ public class LoginActivity extends AppCompatActivity {
         }
       });
     }
+  }
+
+  private void requestUserData() {
+    String currentName = sp_userData.getString(USER_NAME,"");
+    String currentId = sp_userData.getString(USER_ID, "");
+    Token token = new Token(currentId,currentName);
+    Gson gson = new Gson();
+    String json = gson.toJson(token);
+    Log.e("json", json);
+    serverApi.setLogin(json)
+      .enqueue(new Callback<Status>() {
+        @Override
+        public void onResponse(Call<Status> call, Response<Status> response) {
+          String result = response.body().getStatus();
+          if ("200".equals(result)) {
+            startCreateForm();
+          }
+        }
+
+        @Override
+        public void onFailure(Call<Status> call, Throwable t) {
+          Log.e("REQUESTLOGIN_ERROR",t.toString());
+        }
+      });
   }
 
   private void startMain() {
