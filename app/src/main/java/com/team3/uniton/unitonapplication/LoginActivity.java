@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.team3.uniton.unitonapplication.api.ServerApi;
+import com.team3.uniton.unitonapplication.model.Movie;
 import com.team3.uniton.unitonapplication.model.Token;
 import com.team3.uniton.unitonapplication.util.ApiUtil;
 
@@ -48,15 +49,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void requestLogin() {
-        mServerApi.getLogin()
-          .enqueue(new Callback<Token>() {
+        mServerApi.getMovie()
+          .enqueue(new Callback<Movie>() {
               @Override
-              public void onResponse(Call<Token> call, Response<Token> response) {
+              public void onResponse(Call<Movie> call, Response<Movie> response) {
                   Log.e("login",response.toString());
               }
 
               @Override
-              public void onFailure(Call<Token> call, Throwable t) {
+              public void onFailure(Call<Movie> call, Throwable t) {
                   Log.e("login", "error");
               }
           });
