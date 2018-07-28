@@ -22,23 +22,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-<<<<<<< HEAD
         android:id="@+id/btn_login"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:text="카카오계정으로 로그인"
-=======
-        android:id="@+id/loginBtn"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="132dp"
-        android:textColor="#555555"
-        android:elevation="15dp"
-        android:textStyle="bold"
-        android:text="카카오톡으로 시작하기"
->>>>>>> 5639da60a7830ac5ed0d8fcddaa7b0a8d7ddb9d7
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -23,22 +23,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-<<<<<<< HEAD
         android:id="@+id/btn_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-=======
-        android:id="@+id/startBtn"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="35dp"
-        android:textColor="#ffffff"
-        android:elevation="15dp"
-        android:textStyle="bold"
->>>>>>> 5639da60a7830ac5ed0d8fcddaa7b0a8d7ddb9d7
         android:text="시작하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
