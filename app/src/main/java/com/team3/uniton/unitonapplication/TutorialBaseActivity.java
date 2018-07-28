@@ -11,12 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 public class TutorialBaseActivity extends AppCompatActivity {
 
     int MAX_PAGE = 3;
-    ViewPager viewPager = findViewById( R.id.viewPager );
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_tutorial_base );
+        viewPager = findViewById( R.id.viewPager );
         viewPager.setAdapter( new adapter(getSupportFragmentManager()) );
 //        viewPager.setAdapter( ViewPagerAdapter );
 //        setupViewPager();
