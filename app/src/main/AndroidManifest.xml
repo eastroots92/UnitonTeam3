@@ -17,10 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".TutorialActivity" />
-        <activity android:name=".TutorialBaseActivity" >
-        </activity>
-
-
+        <activity android:name=".TutorialBaseActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".CreateFormActivity"></activity>
     </application>
 
 </manifest>
