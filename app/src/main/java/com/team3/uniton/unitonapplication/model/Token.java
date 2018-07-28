@@ -1,6 +1,7 @@
 package com.team3.uniton.unitonapplication.model;
 
 public class Token {
+
   public String id;
   public String name;
 

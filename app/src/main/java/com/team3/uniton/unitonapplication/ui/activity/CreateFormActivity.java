@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -20,7 +21,10 @@ public class CreateFormActivity extends AppCompatActivity {
 
     ImageButton calenderBtn;
     TextView dateText;
-    Button mApplyBtn;
+    Button m_btn_apply;
+    private EditText et_company;
+    private EditText et_department;
+    private EditText et_position;
 
     public String dateString;
 
@@ -31,18 +35,40 @@ public class CreateFormActivity extends AppCompatActivity {
 
         calenderBtn = findViewById( R.id.calender_Btn );
         dateText = findViewById( R.id.dateText );
-        mApplyBtn = findViewById(R.id.applyBtn);
+        m_btn_apply = findViewById(R.id.applyBtn);
+        et_company = findViewById(R.id.et_company);
+        et_department = findViewById(R.id.et_department);
+        et_position = findViewById(R.id.et_position);
 
 
-        mApplyBtn.setOnClickListener(new View.OnClickListener() {
+        m_btn_apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateFormActivity.this, MainActivity.class);
-                startActivity(intent);
+//                requestInfoManager();
+                startMain();
             }
         });
 
         setDate();
+    }
+
+//    private void requestInfoManager() {
+//        Info info = getInfoData();
+//    }
+
+//    private Info getInfoData() {
+//        String currentCompany = et_company.get
+//
+//
+//        Info currentInfo = new Info();
+//
+//        return currentInfo;
+//    }
+
+    private void startMain() {
+        Intent intent = new Intent(CreateFormActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public void setDate() {

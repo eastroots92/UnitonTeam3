@@ -179,7 +179,6 @@ public class LoginActivity extends AppCompatActivity implements ISessionCallback
           Log.e(TAG, "onResponse");
           String result = response.body().getStatus();
           if ("200".equals(result)) {
-
             startCreateForm();
           }
         }
