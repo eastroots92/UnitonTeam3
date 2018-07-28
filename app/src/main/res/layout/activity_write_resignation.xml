@@ -78,7 +78,7 @@
             <!--app:layout_constraintTop_toTopOf="parent"-->
             <!--/>-->
 
-        <com.team3.uniton.unitonapplication.DynamicSineWaveView
+        <com.team3.uniton.unitonapplication.ui.customView.DynamicSineWaveView
             android:id="@+id/waveView"
             android:layout_width="0dp"
             android:layout_height="100dp"

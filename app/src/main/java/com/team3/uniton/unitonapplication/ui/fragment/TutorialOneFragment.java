@@ -1,4 +1,4 @@
-package com.team3.uniton.unitonapplication;
+package com.team3.uniton.unitonapplication.ui.fragment;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,8 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class TutorialTwoFragment extends Fragment {
-    public TutorialTwoFragment() {
+import com.team3.uniton.unitonapplication.R;
+
+public class TutorialOneFragment extends Fragment {
+
+
+    public TutorialOneFragment() {
         // Required empty public constructor
     }
 
@@ -21,7 +25,7 @@ public class TutorialTwoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate( R.layout.fragment_tutorial_two, container, false );
+        return inflater.inflate( R.layout.fragment_tutorial_one, container, false );
     }
 
     public interface OnFragmentInteractionListener {

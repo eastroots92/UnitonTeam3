@@ -1,4 +1,4 @@
-package com.team3.uniton.unitonapplication;
+package com.team3.uniton.unitonapplication.ui.activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.team3.uniton.unitonapplication.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

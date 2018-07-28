@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#026eff"
-    tools:context=".CreateFormActivity">
+    tools:context=".ui.activity.CreateFormActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

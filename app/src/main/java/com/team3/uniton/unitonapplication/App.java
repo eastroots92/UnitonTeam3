@@ -8,6 +8,9 @@ import android.content.pm.Signature;
 import android.util.Base64;
 import android.util.Log;
 
+import com.kakao.auth.KakaoSDK;
+import com.team3.uniton.unitonapplication.adapter.KakaoSDKAdapter;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -15,12 +18,22 @@ import static com.kakao.util.helper.Utility.getPackageInfo;
 
 
 public class App extends Application {
+    private static App instance;
+
+    public static App getAppContext() {
+        if (instance == null) {
+            throw new IllegalStateException("This Application does not inherit com.kakao.GlobalApplication");
+        }
+
+        return instance;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        instance = this;
         Log.e("App","HASH : " + getKeyHash(this));
+        KakaoSDK.init(new KakaoSDKAdapter());
     }
 
     public static String getKeyHash(final Context context) {
@@ -38,6 +51,12 @@ public class App extends Application {
             }
         }
         return null;
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        instance = null;
     }
 }
 

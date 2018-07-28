@@ -1,4 +1,4 @@
-package com.team3.uniton.unitonapplication;
+package com.team3.uniton.unitonapplication.ui.activity;
 
 
 import android.Manifest;
@@ -26,6 +26,8 @@ import android.widget.TextView;
 import com.kakao.sdk.newtoneapi.SpeechRecognizeListener;
 import com.kakao.sdk.newtoneapi.SpeechRecognizerClient;
 import com.kakao.sdk.newtoneapi.SpeechRecognizerManager;
+import com.team3.uniton.unitonapplication.R;
+import com.team3.uniton.unitonapplication.ui.customView.DynamicSineWaveView;
 
 import java.util.ArrayList;
 

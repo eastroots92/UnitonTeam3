@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".ui.activity.LoginActivity"
     android:background="#e8f3fc">
 
     <ImageView
@@ -22,14 +22,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="132dp"
-        android:textColor="#555555"
-        android:elevation="15dp"
-        android:textStyle="bold"
-        android:text="카카오톡으로 시작하기"
+        android:id="@+id/btn_login"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="카카오계정으로 로그인"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
