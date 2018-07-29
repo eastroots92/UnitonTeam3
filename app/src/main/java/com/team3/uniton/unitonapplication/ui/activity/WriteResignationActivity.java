@@ -80,7 +80,6 @@ public class WriteResignationActivity extends AppCompatActivity {
             window.setStatusBarColor(getResources().getColor(R.color.white_four));
         }
 
-        SpeechRecognizerManager.getInstance().initializeLibrary(this);
 
         mProgressBar = findViewById(R.id.progressBar);
         mContentsLayout = findViewById(R.id.content_layout);
@@ -314,6 +313,7 @@ public class WriteResignationActivity extends AppCompatActivity {
         // library를 초기화 합니다.
         // API를 사용할 시점이 되었을 때 initializeLibrary(Context)를 호출한다.
         // 사용을 마치면 finalizeLibrary()를 호출해야 한다.
+        SpeechRecognizerManager.getInstance().initializeLibrary(this);
 
         // 클라이언트 생성
         SpeechRecognizerClient.Builder builder = new SpeechRecognizerClient.Builder()
