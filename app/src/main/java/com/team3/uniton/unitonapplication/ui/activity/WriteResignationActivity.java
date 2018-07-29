@@ -172,10 +172,10 @@ public class WriteResignationActivity extends AppCompatActivity {
             view.setData(1, datas.getFirst_reason(), false);
             mContentsLayout.addView(view);
             ReasonItemView view1 = new ReasonItemView(this);
-            view1.setData(2, datas.getFirst_reason(), false);
+            view1.setData(2, datas.getSecond_reason(), false);
             mContentsLayout.addView(view1);
             ReasonItemView view2 = new ReasonItemView(this);
-            view2.setData(3, datas.getSecond_reason(), true);
+            view2.setData(3, datas.getThird_reason(), true);
             mContentsLayout.addView(view2);
         }
 
@@ -185,10 +185,10 @@ public class WriteResignationActivity extends AppCompatActivity {
             view.setData(1, datas.getFirst_reason(), false);
             mContentsLayout.addView(view);
             ReasonItemView view1 = new ReasonItemView(this);
-            view1.setData(2, datas.getFirst_reason(), false);
+            view1.setData(2, datas.getSecond_reason(), false);
             mContentsLayout.addView(view1);
             ReasonItemView view2 = new ReasonItemView(this);
-            view2.setData(3, datas.getSecond_reason(), false);
+            view2.setData(3, datas.getThird_reason(), false);
             mContentsLayout.addView(view2);
         }
 
