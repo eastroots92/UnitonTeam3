@@ -2,6 +2,7 @@ package com.team3.uniton.unitonapplication.api;
 
 import com.team3.uniton.unitonapplication.model.Info;
 import com.team3.uniton.unitonapplication.model.MainModel;
+import com.team3.uniton.unitonapplication.model.ResignationItem;
 import com.team3.uniton.unitonapplication.model.Reason;
 import com.team3.uniton.unitonapplication.model.Reasons;
 import com.team3.uniton.unitonapplication.model.Status;
@@ -39,6 +40,13 @@ public interface ServerApi {
           String userId
   );
 
+  @GET("/user/{id}/resignation/{resignationId}")
+  Call<ResignationItem> getResign(
+    @Path("id")
+    String userId,
+    @Path("resignationId")
+    String resignationId
+  );
 
   @GET("/user/{id}/resignation")
   Call<Reasons> getReasons(
@@ -52,6 +60,5 @@ public interface ServerApi {
           String userId,
           @Body
           Reason reason
-
   );
 }

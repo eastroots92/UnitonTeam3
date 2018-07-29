@@ -92,6 +92,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_info_department"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -126,6 +127,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tv_info_position"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -155,6 +157,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tv_info_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -199,13 +202,13 @@
 
 
             <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
+              android:id="@+id/tv_resign_01"
+                android:layout_width="224dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="12dp"
-                android:gravity="center_horizontal"
+                android:gravity="start"
                 android:text="실제 근로조건이 채용 시 제시된 근로조건보다\n낮아졌습니다. "
                 android:textColor="#026eff"
                 android:textSize="12sp"
@@ -225,24 +228,24 @@
                 android:textColor="#026eff"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_resign_01" />
 
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_resign_02"
+                android:layout_width="224dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="12dp"
-                android:gravity="center_horizontal"
+                android:gravity="start"
                 android:text="사업장에서 종교, 성별, 신체장애, 노조활동 등을\n이유로 불합리한 차별대우를 받았습니다. "
                 android:textColor="#026eff"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_two"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_resign_01" />
 
             <TextView
                 android:id="@+id/tv_three"
@@ -254,24 +257,24 @@
                 android:textColor="#026eff"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_resign_02" />
 
 
             <TextView
-                android:id="@+id/tv_three_contents"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_resign_03"
+                android:layout_width="224dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="12dp"
-                android:gravity="center_horizontal"
+                android:gravity="start"
                 android:text="사업장에서 종교, 성별, 신체장애, 노조활동 등을\n이유로 불합리한 차별대우를 받았습니다."
                 android:textColor="#026eff"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_three"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_resign_02" />
 
             <TextView
                 android:id="@+id/reason_one"
@@ -285,7 +288,7 @@
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_three_contents" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_resign_03" />
 
             <TextView
                 android:id="@+id/reason_two"
@@ -294,7 +297,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="3dp"
                 android:gravity="center_horizontal"
-                android:text="2018년 7월 8일부로"
+                android:text="2018년 7월 29일부로"
                 android:textColor="#555555"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -317,7 +320,7 @@
 
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
@@ -329,7 +332,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/reason_three" />
 
             <TextView
-                android:id="@+id/person"
+                android:id="@+id/tv_info_sign_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="23dp"
@@ -341,20 +344,20 @@
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_date" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/applyBtn"
+        android:id="@+id/btn_apply"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginBottom="35dp"
         android:textColor="#ffffff"
         android:elevation="15dp"
         android:textStyle="bold"
-        android:text="제출하기"
+        android:text="번역하기"
         app:layout_constraintTop_toBottomOf="@+id/scrollView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
