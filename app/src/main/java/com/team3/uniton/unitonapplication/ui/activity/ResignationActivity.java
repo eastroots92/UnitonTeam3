@@ -39,11 +39,15 @@ public class ResignationActivity extends AppCompatActivity {
     private TextView tv_info_sign_name;
     private Button btn_apply;
 
+    int mRid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_resignation );
-        
+
+        mRid = getIntent().getIntExtra("ID", 1);
+
         init();
     }
 
@@ -89,7 +93,10 @@ public class ResignationActivity extends AppCompatActivity {
     }
 
     private void requestResign() {
-        serverApi.getResign("3","1")
+        SharedPreferences currentSP = getSharedPreferences("USER_MODEL", MODE_PRIVATE);
+        String userID = currentSP.getString("USER_ID","");
+
+        serverApi.getResign(userID,String.valueOf(mRid)) // mock "3", "1"
           .enqueue(new Callback<ResignationItem>() {
               @Override
               public void onResponse(Call<ResignationItem> call, Response<ResignationItem> response) {

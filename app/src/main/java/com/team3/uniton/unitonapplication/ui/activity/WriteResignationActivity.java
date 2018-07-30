@@ -65,6 +65,8 @@ public class WriteResignationActivity extends AppCompatActivity {
 
     ProgressBar mProgressBar;
 
+    int mRid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,6 +139,8 @@ public class WriteResignationActivity extends AppCompatActivity {
         App.serverApi.getReasons(userID).enqueue(new Callback<Reasons>() {
             @Override
             public void onResponse(Call<Reasons> call, Response<Reasons> response) {
+
+                mRid = response.body().getResignation_id();
                 addViews(response.body());
             }
 
@@ -201,14 +205,24 @@ public class WriteResignationActivity extends AppCompatActivity {
 
         ReasonItemView view = (ReasonItemView)mContentsLayout.getChildAt(mContentsLayout.getChildCount() - 1);
         Reason reason = new Reason();
-        reason.setReason(view.getText());
+
+        if (view.getText() != null) {
+            reason.setReason(view.getText());
+        }
         App.serverApi.postReasons(userID, reason).enqueue(new Callback<Status>() {
             @Override
             public void onResponse(Call<Status> call, Response<Status> response) {
                 String result = response.body().status;
                 if ("200".equals(result)) {
-                    Intent intent = new Intent(WriteResignationActivity.this, ResignationActivity.class);
-                    startActivity(intent);
+                    if (mContentsLayout.getChildCount() == 3) {
+                        Intent intent = new Intent(WriteResignationActivity.this, ResignationActivity.class);
+                        intent.putExtra("ID", mRid);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(WriteResignationActivity.this, "등록 성공!", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
                 }
                 mProgressBar.setVisibility(View.INVISIBLE);
             }

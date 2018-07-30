@@ -55,8 +55,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        requestDatas();
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mListLayout.removeAllViews();
+        requestDatas();
 
     }
 
@@ -77,10 +82,19 @@ public class MainActivity extends AppCompatActivity {
 
         mResignationCount.setText(String.format("내가 품은 사직서: %d개", data.getResignation().size()));
 
-        for (Resignation item : data.getResignation()) {
+        for (final Resignation item : data.getResignation()) {
 
             CustomMainItemView view = new CustomMainItemView(this);
             view.setData(item);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, ResignationActivity.class);
+                    intent.putExtra("ID", item.getResignation_id());
+                    startActivity(intent);
+                }
+            });
+
             mListLayout.addView(view);
         }
 

@@ -6,6 +6,15 @@ public class Reasons {
     String second_reason;
     String third_reason;
     int current_reason_count;
+    int resignation_id;
+
+    public int getResignation_id() {
+        return resignation_id;
+    }
+
+    public void setResignation_id(int resignation_id) {
+        this.resignation_id = resignation_id;
+    }
 
     public String getFirst_reason() {
         return first_reason;

@@ -49,8 +49,8 @@ public class ReasonItemView extends LinearLayout {
 
         if (!editable) {
             content.setEnabled(false);
-            index.setTextColor(getResources().getColor(R.color.greyish_brown));
-            content.setTextColor(getResources().getColor(R.color.greyish_brown));
+            index.setTextColor(getResources().getColor(R.color.greyish));
+            content.setTextColor(getResources().getColor(R.color.greyish));
         }
 
     }
